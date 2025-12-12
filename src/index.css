@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #f3f4f6;
+    /* gray-100 */
+    color: #1f2937;
+    /* gray-800 */
+}
+
+/* Optional: Custom utility for standard card if needed, or rely on Tailwind classes */
+.card {
+    background-color: white;
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    /* shadow */
+}
