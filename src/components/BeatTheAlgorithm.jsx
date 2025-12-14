@@ -80,6 +80,10 @@ export function BeatTheAlgorithm() {
       // Artificial delay to show 100%
       setTimeout(() => {
         setAtsResult(data);
+        localStorage.setItem('resume_score', JSON.stringify({
+          score: data.score,
+          date: new Date().toISOString()
+        }));
         setIsAnalyzing(false);
       }, 500);
 

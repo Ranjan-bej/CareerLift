@@ -51,28 +51,6 @@ export function Dashboard() {
                 Your career command center. Track your progress, optimize your resume, and find your next dream role.
               </p>
             </div>
-
-            {/* Quick Stats Mockup */}
-            <div className="flex gap-4">
-              <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-                  <Target className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-gray-400 font-bold uppercase">Applied</div>
-                  <div className="text-xl font-bold text-gray-900">12</div>
-                </div>
-              </div>
-              <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
-                  <Zap className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm text-gray-400 font-bold uppercase">Score</div>
-                  <div className="text-xl font-bold text-gray-900">85%</div>
-                </div>
-              </div>
-            </div>
           </div>
         </motion.div>
 
@@ -163,6 +141,6 @@ export function Dashboard() {
         </motion.div>
 
       </motion.main>
-    </div>
+    </div >
   );
 }

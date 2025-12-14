@@ -1,7 +1,33 @@
-import { ArrowLeft, MapPin, Briefcase, Calendar, Heart, Share2, DollarSign } from 'lucide-react';
+import { ArrowLeft, MapPin, Briefcase, Calendar, Heart, Share2, DollarSign, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 export function JobDetails({ job, onBack }) {
+  const [hasApplied, setHasApplied] = useState(false);
+
+  useEffect(() => {
+    const appliedJobs = JSON.parse(localStorage.getItem('applied_jobs') || '[]');
+    const isApplied = appliedJobs.some(j => j.id === job.id);
+    setHasApplied(isApplied);
+  }, [job.id]);
+
+  const handleApply = () => {
+    const appliedJobs = JSON.parse(localStorage.getItem('applied_jobs') || '[]');
+    if (!appliedJobs.some(j => j.id === job.id)) {
+      appliedJobs.push({
+        id: job.id,
+        title: job.title,
+        company: job.company,
+        location: job.location,
+        type: job.type,
+        salary: job.salary,
+        appliedDate: new Date().toISOString()
+      });
+      localStorage.setItem('applied_jobs', JSON.stringify(appliedJobs));
+      setHasApplied(true);
+    }
+  };
+
   return (
     <motion.div
       initial={{ x: '100%', opacity: 0 }}
@@ -197,9 +223,21 @@ export function JobDetails({ job, onBack }) {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-gray-900 text-white rounded-xl hover:bg-black transition-all font-bold text-lg shadow-xl shadow-gray-200"
+                  onClick={handleApply}
+                  disabled={hasApplied}
+                  className={`w-full py-4 rounded-xl transition-all font-bold text-lg shadow-xl ${hasApplied
+                      ? 'bg-green-600 text-white cursor-default shadow-green-200'
+                      : 'bg-gray-900 text-white hover:bg-black shadow-gray-200'
+                    }`}
                 >
-                  Apply Now
+                  {hasApplied ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <CheckCircle className="w-5 h-5" />
+                      Applied
+                    </span>
+                  ) : (
+                    'Apply Now'
+                  )}
                 </motion.button>
               </motion.div>
 
