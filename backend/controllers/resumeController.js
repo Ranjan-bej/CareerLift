@@ -1,4 +1,10 @@
-const pdf = require('pdf-parse');
+const { PDFParse } = require('pdf-parse');
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const fs = require('fs');
+
+// Initialize Gemini
+// const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI("Your_Api_key")
 
 exports.analyzeResume = async (req, res) => {
     try {
@@ -6,81 +12,86 @@ exports.analyzeResume = async (req, res) => {
             return res.status(400).json({ message: 'No file uploaded' });
         }
 
+        console.log('Starting resume analysis for file:', req.file.path);
+
+        // 1. Extract Text
         let text = '';
         if (req.file.mimetype === 'application/pdf') {
-            const data = await pdf(req.file.buffer);
-            text = data.text;
+            const fileBuffer = fs.readFileSync(req.file.path);
+            const parser = new PDFParse({ data: fileBuffer });
+            const result = await parser.getText();
+            text = result.text;
         } else {
-            text = "Simulated text content from file " + req.file.originalname;
+            // Fallback for non-PDFs (though frontend restricts to PDF/Docx, parsing docx needs other libs)
+            // For now assume PDF or simple text extraction
+            return res.status(400).json({ message: 'Only PDF files are currently supported for deep analysis.' });
         }
 
-        const fileName = req.file.originalname.toLowerCase();
-        const fileSize = req.file.size;
+        // Truncate text if too long (Gemini has limits but they are high)
+        text = text.slice(0, 30000);
 
-        const detectedKeywords = [];
-        const availableKeywordSets = [
-            ['react', 'javascript', 'node', 'mongodb', 'html', 'css', 'frontend', 'backend', 'git'],
-            ['python', 'machine learning', 'tensorflow', 'data science', 'pandas', 'numpy', 'statistics'],
-            ['java', 'spring', 'backend', 'sql', 'api', 'microservices', 'docker'],
-            ['devops', 'aws', 'kubernetes', 'docker', 'ci/cd', 'jenkins', 'terraform']
-        ];
-        const selectedKeywordSet = availableKeywordSets[fileName.length % availableKeywordSets.length];
-        detectedKeywords.push(...selectedKeywordSet);
+        // 2. Generate Content with Gemini
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-        const baseScore = 65 + Math.floor(Math.random() * 25);
-        const resumeWordedScore = baseScore + Math.floor(Math.random() * 10) - 5;
-        const reziScore = baseScore + Math.floor(Math.random() * 10) - 5;
-        const enhanceCVScore = baseScore + Math.floor(Math.random() * 10) - 5;
-        const avgScore = Math.round((resumeWordedScore + reziScore + enhanceCVScore) / 3);
+        const prompt = `
+        You are an advanced Application Tracking System (ATS) and Career Coach. 
+        Analyze the following resume text and provide a structured JSON response.
+        Do not return any markdown formatting, just the raw JSON string.
+        
+        Resume Text:
+        "${text.replace(/"/g, '\"')}"
 
-        const feedback = [];
-        if (req.file.mimetype === 'application/pdf') {
-            feedback.push({ type: 'success', text: 'File Format – PDF is ATS-friendly ✓' });
-        } else {
-            feedback.push({ type: 'warning', text: 'File Format – DOCX may have formatting issues' });
+        Required JSON Structure:
+        {
+            "score": <number 0-100 based on keyword density, formatting, impact>,
+            "feedback": [
+                { "type": "error", "text": "<Critical mistake, e.g. missing section>" },
+                { "type": "warning", "text": "<Improvement suggestion, e.g. weak verbs>" },
+                { "type": "success", "text": "<Positive point, e.g. good header>" }
+            ],
+            "apiSources": [
+                { "name": "Gemini Analysis", "score": <same as score> },
+                { "name": "Market Standard", "score": <score - 5> },
+                { "name": "Recruiter Check", "score": <score + 2> }
+            ],
+            "suitableProfiles": [
+                { "title": "<Job Title 1>", "matchPercentage": <number> },
+                { "title": "<Job Title 2>", "matchPercentage": <number> }
+            ]
         }
+        Ensure the "feedback" array has at least 3-5 items mixed with success, error, and warning.
+        Ensure "suitableProfiles" has 2-3 items.
+        `;
 
-        if (fileSize < 500000) {
-            feedback.push({ type: 'success', text: 'File Size – Optimized for ATS systems ✓' });
-        } else if (fileSize > 2000000) {
-            feedback.push({ type: 'warning', text: 'File Size – Too large, may be rejected by some systems' });
-        } else {
-            feedback.push({ type: 'warning', text: 'File Size – Could be more optimized' });
-        }
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const textResponse = response.text();
 
-        feedback.push({ type: 'success', text: 'Contact Information – Detected and complete ✓' });
-        feedback.push({
-            type: avgScore > 75 ? 'success' : 'warning',
-            text: `Keywords Optimization – ${avgScore > 75 ? 'Strong' : 'Needs improvement'}`
-        });
+        // 3. Parse JSON
+        // Clean up markdown code blocks if Gemini returns them
+        const jsonString = textResponse.replace(/^```json/g, '').replace(/^```/g, '').replace(/```$/g, '').trim();
+        const analysisData = JSON.parse(jsonString);
 
-        if (detectedKeywords.length > 0) {
-            feedback.push({
-                type: 'success',
-                text: `Skills Detected – Found ${detectedKeywords.length} relevant technical skills ✓`
-            });
-        }
-
-        const apiSources = [
-            { name: 'Resume Worded', score: resumeWordedScore },
-            { name: 'Rezi AI', score: reziScore },
-            { name: 'EnhanceCV', score: enhanceCVScore },
-        ];
-
-        const suitableProfiles = [
-            { title: 'Software Engineer', matchPercentage: Math.min(avgScore + 10, 95) },
-            { title: 'Full Stack Developer', matchPercentage: Math.min(avgScore + 5, 90) }
-        ];
-
-        res.json({
-            score: avgScore,
-            feedback,
-            apiSources,
-            suitableProfiles
-        });
+        res.json(analysisData);
 
     } catch (error) {
         console.error('Analysis error:', error);
-        res.status(500).json({ message: 'Error analyzing resume' });
+        // Log to file for debugging
+        fs.appendFileSync('backend_error.log', new Date().toISOString() + ': ' + error.stack + '\n');
+
+        // Fallback or Error handling
+        res.status(500).json({
+            message: 'Error analyzing resume',
+            error: error.message,
+            hint: "Check server logs/backend_error.log for details."
+        });
+    } finally {
+        // 4. Cleanup: Remove the file from uploads/
+        if (req.file && req.file.path) {
+            fs.unlink(req.file.path, (err) => {
+                if (err) console.error('Error deleting file:', err);
+                else console.log('File deleted successfully:', req.file.path);
+            });
+        }
     }
 };
