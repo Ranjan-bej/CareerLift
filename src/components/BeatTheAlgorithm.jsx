@@ -11,6 +11,7 @@ export function BeatTheAlgorithm() {
   const [atsResult, setAtsResult] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisProgress, setAnalysisProgress] = useState(0);
+  const [analysisStage, setAnalysisStage] = useState('Initializing scan...');
   const fileInputRef = useRef(null);
 
   const handleDragOver = (e) => {
@@ -50,15 +51,30 @@ export function BeatTheAlgorithm() {
     setAnalysisProgress(0);
 
     // Simulate progress
+    const stages = [
+      "Extracting text content...",
+      "Identifying contact information...",
+      "Analyzing keyword density...",
+      "Checking formatting structure...",
+      "comparing against industry standards...",
+      "Calculating final ATS score..."
+    ];
+
+    let stageIndex = 0;
     const progressInterval = setInterval(() => {
       setAnalysisProgress(prev => {
         if (prev >= 90) {
-          clearInterval(progressInterval);
+          // Keep it at 90 until data arrives
           return 90;
         }
-        return prev + Math.random() * 10;
+        // Update stage based on progress
+        const currentStageIndex = Math.floor((prev / 90) * stages.length);
+        if (stages[currentStageIndex]) {
+          setAnalysisStage(stages[currentStageIndex]);
+        }
+        return prev + 2;
       });
-    }, 200);
+    }, 100);
 
     try {
       const formData = new FormData();
@@ -270,7 +286,8 @@ export function BeatTheAlgorithm() {
                         </div>
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Analyzing Resume...</h3>
-                      <p className="text-gray-500 animate-pulse">Scanning specifically for ATS keywords</p>
+                      <p className="text-purple-600 font-medium animate-pulse">{analysisStage}</p>
+                      <p className="text-gray-400 text-sm mt-2">This usually takes about 5-10 seconds</p>
                     </div>
                   )}
                 </div>
@@ -356,54 +373,110 @@ export function BeatTheAlgorithm() {
 
               {/* Feedback Section */}
               <div className="grid md:grid-cols-2 gap-8">
-                {/* Fixes */}
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <AlertTriangle className="w-5 h-5 text-amber-500" />
-                    Priority Fixes
-                  </h3>
-                  <div className="space-y-4">
-                    {atsResult.feedback.filter(i => i.type !== 'success').map((item, index) => (
-                      <div key={index} className="flex gap-4 p-4 bg-amber-50/50 rounded-2xl border border-amber-50">
-                        <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <span className="text-amber-700 font-bold text-xs">{index + 1}</span>
-                        </div>
-                        <p className="text-gray-700 leading-relaxed font-medium">{item.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Profiles */}
-                <motion.div
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm"
-                >
-                  <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                    <Briefcase className="w-5 h-5 text-purple-500" />
-                    Best Matched Roles
-                  </h3>
-                  <div className="space-y-3">
-                    {atsResult.suitableProfiles.map((profile, index) => (
-                      <div key={index} className="group flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl border border-gray-100 transition-colors cursor-default">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 font-bold">
-                            {profile.matchPercentage}%
+                {/* Critical Mistakes & Improvements Column */}
+                <div className="space-y-6">
+                  {/* Critical Errors */}
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="bg-white rounded-3xl p-8 border border-red-100 shadow-sm"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5 text-red-500" />
+                      Critical Issues
+                    </h3>
+                    <div className="space-y-4">
+                      {atsResult.feedback.filter(i => i.type === 'error').length > 0 ? (
+                        atsResult.feedback.filter(i => i.type === 'error').map((item, index) => (
+                          <div key={index} className="flex gap-4 p-4 bg-red-50/50 rounded-2xl border border-red-50">
+                            <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                              <X className="w-4 h-4 text-red-600" />
+                            </div>
+                            <p className="text-gray-800 leading-relaxed font-medium">{item.text}</p>
                           </div>
-                          <span className="font-bold text-gray-800">{profile.title}</span>
+                        ))
+                      ) : (
+                        <div className="text-center py-6 text-gray-500 bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                          No critical issues found! 🎉
                         </div>
-                        <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-gray-500 transition-colors" />
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
+                      )}
+                    </div>
+                  </motion.div>
+
+                  {/* Improvements */}
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="bg-white rounded-3xl p-8 border border-amber-100 shadow-sm"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 text-amber-500" />
+                      Recommended Improvements
+                    </h3>
+                    <div className="space-y-4">
+                      {atsResult.feedback.filter(i => i.type === 'warning').map((item, index) => (
+                        <div key={index} className="flex gap-4 p-4 bg-amber-50/50 rounded-2xl border border-amber-50">
+                          <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span className="text-amber-700 font-bold text-xs">{index + 1}</span>
+                          </div>
+                          <p className="text-gray-800 leading-relaxed font-medium">{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Success & Profiles Column */}
+                <div className="space-y-6">
+                  {/* Successes */}
+                  <motion.div
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                    className="bg-white rounded-3xl p-8 border border-emerald-100 shadow-sm"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                      What You Did Well
+                    </h3>
+                    <div className="space-y-3">
+                      {atsResult.feedback.filter(i => i.type === 'success').map((item, index) => (
+                        <div key={index} className="flex items-center gap-3 p-3 text-emerald-800 bg-emerald-50/50 rounded-xl border border-emerald-50 text-sm font-medium">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                          {item.text}
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Profiles */}
+                  <motion.div
+                    initial={{ x: 20, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm"
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <Briefcase className="w-5 h-5 text-purple-500" />
+                      Best Matched Roles
+                    </h3>
+                    <div className="space-y-3">
+                      {atsResult.suitableProfiles.map((profile, index) => (
+                        <div key={index} className="group flex items-center justify-between p-4 hover:bg-gray-50 rounded-2xl border border-gray-100 transition-colors cursor-default">
+                          <div className="flex items-center gap-4">
+                            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 font-bold">
+                              {profile.matchPercentage}%
+                            </div>
+                            <span className="font-bold text-gray-800">{profile.title}</span>
+                          </div>
+                          <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-gray-500 transition-colors" />
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </div>
               </div>
 
             </motion.div>
