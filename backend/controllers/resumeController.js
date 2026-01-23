@@ -18,7 +18,7 @@ async function writeUsersFile(users) {
 
 // Initialize Gemini
 // const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const genAI = new GoogleGenerativeAI("AIzaSyCzcvUyqnN3VpFiT_UGb8Ieo8UODWA7jWI")
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 exports.analyzeResume = async (req, res) => {
     try {
