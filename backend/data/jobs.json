@@ -1,0 +1,413 @@
+[
+    {
+        "id": 1,
+        "title": "Senior Software Engineer",
+        "company": "Infosys",
+        "location": "Bengaluru, Karnataka",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "salary": "₹15L - ₹25L",
+        "description": "Join our cloud engineering team to build scalable solutions for Fortune 500 clients.",
+        "postedDays": 1,
+        "isRemote": true,
+        "companyInitial": "I",
+        "color": "bg-blue-600",
+        "level": "Senior",
+        "skills": [
+            "AWS",
+            "Azure",
+            "Microservices",
+            "Docker",
+            "Kubernetes"
+        ],
+        "aboutRole": "We are looking for an experienced Senior Software Engineer to join our cloud engineering team. You will be responsible for designing and building scalable cloud-based solutions for our Fortune 500 clients. This is a high-impact role where you will work closely with architects and product managers to deliver world-class enterprise SaaS platforms.",
+        "companyDescription": "Infosys is a global leader in next-generation digital services and consulting. We enable clients in more than 50 countries to navigate their digital transformation.",
+        "responsibilities": [
+            "Design and develop cloud-native applications using AWS and Azure",
+            "Build and maintain microservices architecture for enterprise clients",
+            "Collaborate with cross-functional teams to define and implement technical solutions",
+            "Mentor junior engineers and conduct code reviews",
+            "Optimize application performance and scalability",
+            "Participate in architectural decisions and contribute to the technical roadmap"
+        ],
+        "requirements": [
+            "5+ years of professional experience in software development",
+            "Strong proficiency in Java, Python, or Node.js",
+            "Experience with cloud platforms (AWS, Azure, or GCP)",
+            "Deep understanding of microservices architecture and containerization",
+            "Experience with CI/CD pipelines and DevOps practices",
+            "Excellent problem-solving skills and ability to work in a fast-paced environment",
+            "Bachelor's degree in Computer Science or related field"
+        ],
+        "benefits": [
+            "Competitive salary with performance bonuses",
+            "Health insurance for you and your family",
+            "Flexible work from home policy",
+            "Learning and development budget",
+            "Employee stock options",
+            "Annual wellness allowance"
+        ],
+        "hiringManager": {
+            "name": "Rajesh Kumar",
+            "role": "Engineering Manager"
+        }
+    },
+    {
+        "id": 2,
+        "title": "Product Manager",
+        "company": "Flipkart",
+        "location": "Bengaluru, Karnataka",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "salary": "₹25L - ₹40L",
+        "description": "Lead product strategy for our e-commerce platform and drive innovation.",
+        "postedDays": 2,
+        "isRemote": false,
+        "companyInitial": "F",
+        "color": "bg-yellow-500",
+        "level": "Senior",
+        "skills": [
+            "Product Strategy",
+            "Data Analysis",
+            "User Research",
+            "Agile",
+            "SQL"
+        ],
+        "aboutRole": "Join Flipkart as a Product Manager and shape the future of e-commerce in India. You will own end-to-end product development for key features that impact millions of users daily. This role requires strong analytical skills, customer empathy, and the ability to collaborate with engineering, design, and business teams.",
+        "companyDescription": "Flipkart is India's leading e-commerce marketplace with over 350 million registered users. We are committed to making commerce accessible and affordable for everyone.",
+        "responsibilities": [
+            "Define product vision and roadmap for key e-commerce features",
+            "Conduct user research and analyze data to identify opportunities",
+            "Work closely with engineering and design teams to deliver exceptional products",
+            "Define and track key product metrics and KPIs",
+            "Prioritize features based on impact and effort",
+            "Present product updates to leadership and stakeholders"
+        ],
+        "requirements": [
+            "4+ years of product management experience, preferably in e-commerce or consumer tech",
+            "Strong analytical skills with experience in SQL and data analysis tools",
+            "Proven track record of launching successful products",
+            "Excellent communication and stakeholder management skills",
+            "Deep understanding of user-centered design principles",
+            "MBA or equivalent experience preferred"
+        ],
+        "benefits": [
+            "Industry-leading compensation and ESOPs",
+            "Comprehensive health and wellness benefits",
+            "Relocation assistance",
+            "Professional development opportunities",
+            "Cafeteria and transportation facilities"
+        ],
+        "hiringManager": {
+            "name": "Priya Sharma",
+            "role": "Director of Product"
+        }
+    },
+    {
+        "id": 3,
+        "title": "Data Scientist",
+        "company": "Ola",
+        "location": "Hyderabad, Telangana",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "salary": "₹18L - ₹30L",
+        "description": "Build ML models to optimize ride pricing and demand forecasting.",
+        "postedDays": 3,
+        "isRemote": true,
+        "companyInitial": "O",
+        "color": "bg-green-600",
+        "level": "Senior",
+        "skills": [
+            "Python",
+            "Machine Learning",
+            "TensorFlow",
+            "SQL",
+            "Statistics"
+        ],
+        "aboutRole": "As a Data Scientist at Ola, you will work on cutting-edge machine learning problems that directly impact millions of riders and drivers. You will build models for dynamic pricing, demand forecasting, and route optimization that power India's largest ride-hailing platform.",
+        "companyDescription": "Ola is India's largest mobility platform and one of the world's largest ride-hailing companies, serving 250+ cities across India, Australia, New Zealand, and the UK.",
+        "responsibilities": [
+            "Develop and deploy machine learning models for pricing optimization",
+            "Build demand forecasting models to improve driver-rider matching",
+            "Analyze large datasets to uncover insights and opportunities",
+            "Collaborate with product and engineering teams to productionize models",
+            "Monitor model performance and iterate based on real-world feedback",
+            "Present findings and recommendations to leadership"
+        ],
+        "requirements": [
+            "Master's or PhD in Computer Science, Statistics, or related field",
+            "3+ years of experience in data science or machine learning",
+            "Strong programming skills in Python and experience with ML frameworks",
+            "Experience with big data technologies (Spark, Hadoop)",
+            "Solid understanding of statistical modeling and A/B testing",
+            "Excellent problem-solving and communication skills"
+        ],
+        "benefits": [
+            "Competitive compensation with equity",
+            "Remote work flexibility",
+            "Health insurance and wellness programs",
+            "Learning and conference budget",
+            "Unlimited Ola rides credits"
+        ],
+        "hiringManager": {
+            "name": "Ankit Verma",
+            "role": "Lead Data Scientist"
+        }
+    },
+    {
+        "id": 4,
+        "title": "Frontend Developer",
+        "company": "Paytm",
+        "location": "Noida, Uttar Pradesh",
+        "type": "Full-time",
+        "experience": "Entry Level",
+        "salary": "₹8L - ₹15L",
+        "description": "Build beautiful user interfaces for India's leading payments platform.",
+        "postedDays": 1,
+        "isRemote": true,
+        "companyInitial": "P",
+        "color": "bg-blue-500",
+        "level": "Mid-Level",
+        "skills": [
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "HTML/CSS",
+            "Redux"
+        ],
+        "aboutRole": "Join Paytm's frontend engineering team to build delightful user experiences for millions of users. You will work on our web and mobile web platforms, implementing pixel-perfect designs and ensuring optimal performance across devices.",
+        "companyDescription": "Paytm is India's leading digital payments and financial services company, serving over 350 million users with payment, banking, and commerce solutions.",
+        "responsibilities": [
+            "Develop responsive web applications using React and TypeScript",
+            "Collaborate with designers to implement pixel-perfect UIs",
+            "Optimize application performance and load times",
+            "Write clean, maintainable, and well-tested code",
+            "Participate in code reviews and contribute to best practices",
+            "Work with backend teams to integrate APIs"
+        ],
+        "requirements": [
+            "1-3 years of experience in frontend development",
+            "Strong proficiency in React, JavaScript, and TypeScript",
+            "Experience with responsive design and CSS frameworks",
+            "Understanding of web performance optimization",
+            "Familiarity with Git and modern development workflows",
+            "Good communication skills and team player"
+        ],
+        "benefits": [
+            "Competitive salary and annual bonuses",
+            "Health insurance coverage",
+            "Work from home flexibility",
+            "Learning and development budget",
+            "Free meals and snacks"
+        ],
+        "hiringManager": {
+            "name": "Neha Gupta",
+            "role": "Frontend Engineering Lead"
+        }
+    },
+    {
+        "id": 5,
+        "title": "DevOps Engineer",
+        "company": "Zomato",
+        "location": "Gurugram, Haryana",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "salary": "₹12L - ₹22L",
+        "description": "Manage cloud infrastructure and CI/CD pipelines for our food delivery platform.",
+        "postedDays": 2,
+        "isRemote": true,
+        "companyInitial": "Z",
+        "color": "bg-red-600",
+        "level": "Senior",
+        "skills": [
+            "Kubernetes",
+            "Docker",
+            "AWS",
+            "Terraform",
+            "Jenkins"
+        ],
+        "aboutRole": "As a DevOps Engineer at Zomato, you will be responsible for building and maintaining the infrastructure that powers India's largest food delivery platform. You will work on automation, monitoring, and ensuring high availability for millions of daily orders.",
+        "companyDescription": "Zomato is India's leading food delivery and restaurant discovery platform, serving 25+ countries and processing millions of orders daily.",
+        "responsibilities": [
+            "Design and maintain scalable cloud infrastructure on AWS",
+            "Build and optimize CI/CD pipelines for rapid deployments",
+            "Implement monitoring and alerting systems",
+            "Automate infrastructure provisioning using Terraform",
+            "Ensure system reliability and uptime",
+            "Collaborate with development teams to improve deployment processes"
+        ],
+        "requirements": [
+            "3+ years of experience in DevOps or Site Reliability Engineering",
+            "Strong experience with Kubernetes and Docker",
+            "Proficiency with AWS services (EC2, S3, RDS, Lambda)",
+            "Experience with Infrastructure as Code (Terraform, CloudFormation)",
+            "Knowledge of monitoring tools (Prometheus, Grafana, ELK)",
+            "Scripting skills in Python, Bash, or similar"
+        ],
+        "benefits": [
+            "Competitive compensation package",
+            "Zomato Pro membership",
+            "Health and wellness benefits",
+            "Remote work options",
+            "Learning stipend"
+        ],
+        "hiringManager": {
+            "name": "Vikram Singh",
+            "role": "DevOps Manager"
+        }
+    },
+    {
+        "id": 6,
+        "title": "UI/UX Designer",
+        "company": "CRED",
+        "location": "Bengaluru, Karnataka",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "salary": "₹20L - ₹35L",
+        "description": "Create delightful experiences for our premium credit card users.",
+        "postedDays": 4,
+        "isRemote": false,
+        "companyInitial": "C",
+        "color": "bg-purple-600",
+        "level": "Senior",
+        "skills": [
+            "Figma",
+            "Sketch",
+            "Prototyping",
+            "User Research",
+            "Motion Design"
+        ],
+        "aboutRole": "Join CRED as a UI/UX Designer and craft beautiful, intuitive experiences for India's most creditworthy users. You will work on our mobile app, web platform, and new product initiatives, pushing the boundaries of design excellence.",
+        "companyDescription": "CRED is a members-only platform that rewards creditworthy individuals for making timely credit card payments. We are known for our distinctive design and premium user experience.",
+        "responsibilities": [
+            "Design end-to-end user experiences for mobile and web",
+            "Create high-fidelity mockups and interactive prototypes",
+            "Conduct user research and usability testing",
+            "Collaborate with product and engineering teams",
+            "Maintain and evolve the design system",
+            "Present design concepts to stakeholders"
+        ],
+        "requirements": [
+            "4+ years of experience in UI/UX design",
+            "Strong portfolio showcasing mobile app design",
+            "Expertise in Figma, Sketch, or similar tools",
+            "Understanding of motion design and micro-interactions",
+            "Experience with design systems",
+            "Excellent visual design skills"
+        ],
+        "benefits": [
+            "Premium compensation and ESOPs",
+            "MacBook and design tools",
+            "Health and wellness benefits",
+            "CRED coins and exclusive rewards",
+            "Creative work environment"
+        ],
+        "hiringManager": {
+            "name": "Arjun Malhotra",
+            "role": "Design Lead"
+        }
+    },
+    {
+        "id": 7,
+        "title": "Backend Developer",
+        "company": "Swiggy",
+        "location": "Bengaluru, Karnataka",
+        "type": "Full-time",
+        "experience": "Entry Level",
+        "salary": "₹10L - ₹18L",
+        "description": "Build high-performance APIs and microservices for our food delivery platform.",
+        "postedDays": 1,
+        "isRemote": true,
+        "companyInitial": "S",
+        "color": "bg-orange-600",
+        "level": "Mid-Level",
+        "skills": [
+            "Java",
+            "Spring Boot",
+            "PostgreSQL",
+            "Redis",
+            "Kafka"
+        ],
+        "aboutRole": "Join Swiggy's backend engineering team to build robust, scalable APIs that power millions of food deliveries. You will work on microservices architecture, database optimization, and real-time systems.",
+        "companyDescription": "Swiggy is India's leading on-demand delivery platform, bringing food, groceries, and more to millions of customers across 500+ cities.",
+        "responsibilities": [
+            "Develop RESTful APIs using Java and Spring Boot",
+            "Design and optimize database schemas",
+            "Implement caching strategies for improved performance",
+            "Build event-driven systems using Kafka",
+            "Write unit and integration tests",
+            "Participate in on-call rotation"
+        ],
+        "requirements": [
+            "1-3 years of backend development experience",
+            "Strong knowledge of Java and Spring framework",
+            "Experience with relational databases (PostgreSQL, MySQL)",
+            "Understanding of microservices architecture",
+            "Familiarity with caching and message queues",
+            "Good problem-solving skills"
+        ],
+        "benefits": [
+            "Competitive salary",
+            "Swiggy One membership",
+            "Health insurance",
+            "Work from home flexibility",
+            "Learning opportunities"
+        ],
+        "hiringManager": {
+            "name": "Sameer Patel",
+            "role": "Engineering Manager"
+        }
+    },
+    {
+        "id": 8,
+        "title": "Tech Lead",
+        "company": "PhonePe",
+        "location": "Pune, Maharashtra",
+        "type": "Full-time",
+        "experience": "Director",
+        "salary": "₹35L - ₹50L",
+        "description": "Lead engineering teams building India's largest digital payments platform.",
+        "postedDays": 5,
+        "isRemote": false,
+        "companyInitial": "P",
+        "color": "bg-purple-700",
+        "level": "Lead",
+        "skills": [
+            "System Design",
+            "Java",
+            "Leadership",
+            "Distributed Systems",
+            "Architecture"
+        ],
+        "aboutRole": "As a Tech Lead at PhonePe, you will lead a team of talented engineers building critical payment infrastructure. You will drive technical excellence, mentor team members, and make key architectural decisions for systems processing millions of transactions daily.",
+        "companyDescription": "PhonePe is India's leading digital payments platform with over 450 million registered users and presence across 99% of PIN codes in India.",
+        "responsibilities": [
+            "Lead and mentor a team of 8-10 engineers",
+            "Drive architectural decisions and technical strategy",
+            "Design highly scalable and fault-tolerant systems",
+            "Conduct technical reviews and ensure code quality",
+            "Collaborate with product and business teams",
+            "Foster a culture of innovation and excellence"
+        ],
+        "requirements": [
+            "8+ years of software engineering experience",
+            "3+ years in a technical leadership role",
+            "Deep expertise in distributed systems and microservices",
+            "Strong programming skills in Java or similar languages",
+            "Experience with high-scale payment or fintech systems",
+            "Excellent leadership and communication skills",
+            "Bachelor's or Master's degree in Computer Science"
+        ],
+        "benefits": [
+            "Exceptional compensation with ESOPs",
+            "Leadership development programs",
+            "Comprehensive health benefits",
+            "Relocation assistance",
+            "Premium office facilities"
+        ],
+        "hiringManager": {
+            "name": "Karthik Menon",
+            "role": "Director of Engineering"
+        }
+    }
+]

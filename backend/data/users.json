@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1765555464474,
+    "email": "test1765555464332@example.com",
+    "password": "$2b$10$kLxs3jvj8rrj4xuu4qyHrelFvch4ThFfqKE/mMIcE/Ubu9BxsLoXy",
+    "name": "Test User"
+  },
+  {
+    "id": 1765555575120,
+    "email": "ranjan.288.bej@gmail.com",
+    "password": "$2b$10$qj6i1K8F7qAIrd5l2Ty2rewBZ3Fd2QhUqoCOmUuafZeSEIysNHOsy",
+    "name": "Ranjan Bej",
+    "profile": {
+      "name": "Ranjan Bej",
+      "title": "Full Stack Developer",
+      "location": "Jamshedpur",
+      "bio": "Final year computer science student ",
+      "avatar": ""
+    },
+    "contact": {
+      "email": "ranjan.288.bej@gmail.com",
+      "phone": "",
+      "alternateEmail": ""
+    },
+    "resume": {
+      "filename": "1769077271217-RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "originalName": "RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "path": "uploads\\1769077271217-RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "uploadedAt": "2026-01-22T10:21:11.482Z",
+      "text": "Ranjan Bej +91-9110045513 | ranjan.288.bej@gmail.com | LeetCode | LinkedIn | GitHub SUMMARY A final-year software engineering student with experience in building web applications. Passionate about artificial intelligence, I am eager to apply my skills in a professional setting and contribute to real-world projects. EDUCATION Siksha O Anusandhan 2022 – 2026 B.Tech in Computer Science and Information Technology(CGPA: 9.57) EXPERIENCE Tata Steel ,Vocational Trainee June 2025 – July 2025 • Built a React.js frontend integrated with a Node.js backend, enabling users to quickly search engineering document PDFs. • Added LLM-powered summarization to generate concise, context-specific summaries of lengthy technical document, reducing the reading time for technical teams. • Designed and implemented search and retrieval APIs, ensuring quick access to relevant document and a seamless user experience. PROJECTS QuickDrop (Link) (GitHub) • A file-sharing web application built with React.js and Node.js, enabling users to securely upload and access files using unique codes. • Developed a backend with custom APIs for uploading, downloading, and automatically expiring files, enhancing privacy and user control. • Used MongoDB to store file information and integrated it with backend APIs to ensure smooth and safe file handling for all users. ClipURL (Link) (GitHub) • Developed the frontend of a custom URL shortener using React.js, enabling users to generate, manage, and share shortened links effortlessly. • Collaborated with teammates with the Node.js backend, which integrated MongoDB for storing original and shortened URLs with expiration policies. • Designed and implemented responsive UI components, forms, and interactive elements to ensure a smooth user experience. CareerLift (GitHub) • Built a full-stack career guidance platform using React.js, Node.js, Express.js, and MongoDB to help users improve job readiness. • Implemented an ATS-based resume score checker that analyzes resumes against job descriptions and provides actionable optimization insights. • Designed scalable backend APIs and authentication flows, with upcoming features including AI-powered mock interviews and peer-to-peer interview practice. SKILLS Languages: Java, JavaScript, C++, SQL Frameworks & Libraries: React.js, MongoDB, Express.js Additional: Git/Github,Data Structures, Algorithm ACHIEVEMENTS • Selected for the PwC Launchpad Program, where I learned Java, RDBMS, and DevOps tools through structured video-based training and live masterclass. • Achieved 5-star rating in Java on HackerRank, demonstrating strong proficiency in Java programming and problem-solving skills. -- 1 of 1 --"
+    },
+    "skills": [],
+    "experiences": [],
+    "educations": [],
+    "certifications": [],
+    "projects": [],
+    "savedJobs": [
+      {
+        "id": 3,
+        "title": "Data Scientist",
+        "company": "Ola",
+        "location": "Hyderabad, Telangana",
+        "salary": "₹18L - ₹30L",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "postedDays": 3,
+        "companyInitial": "O",
+        "color": "bg-green-600",
+        "isRemote": true
+      },
+      {
+        "id": 2,
+        "title": "Product Manager",
+        "company": "Flipkart",
+        "location": "Bengaluru, Karnataka",
+        "salary": "₹25L - ₹40L",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "postedDays": 2,
+        "companyInitial": "F",
+        "color": "bg-yellow-500",
+        "isRemote": false
+      },
+      {
+        "id": 1,
+        "title": "Senior Software Engineer",
+        "company": "Infosys",
+        "location": "Bengaluru, Karnataka",
+        "salary": "₹15L - ₹25L",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "postedDays": 1,
+        "companyInitial": "I",
+        "color": "bg-blue-600",
+        "isRemote": true
+      }
+    ]
+  },
+  {
+    "id": 1765558696004,
+    "email": "ranjan@gmail.com",
+    "password": "$2b$10$jG51XUBjra0pfl0YGOkQa.nQOObD1tTe/kY8BOuG212OpS6MqJ./2",
+    "name": "Ranjan"
+  },
+  {
+    "id": 1769078915837,
+    "email": "amar@gmail.com",
+    "password": "$2b$10$P1yMt3ddlwduXMojBaw4kuwOf55HpLnxfJ0d2ZQWrpURhR7zXecTO",
+    "name": "amar"
+  },
+  {
+    "id": 1769078956654,
+    "email": "abhi@gmail.com",
+    "password": "$2b$10$IGwYl2EN8WHFrJFtPoFiwuY9facjfipillS69GNu3gbvNZK2ABmTe",
+    "name": "Abhishek Bhanja",
+    "resume": {
+      "filename": "1769078984493-RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "originalName": "RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "path": "uploads\\1769078984493-RenderCV_EngineeringResumes_Theme__1_.pdf",
+      "uploadedAt": "2026-01-22T10:49:44.853Z",
+      "text": "Ranjan Bej +91-9110045513 | ranjan.288.bej@gmail.com | LeetCode | LinkedIn | GitHub SUMMARY A final-year software engineering student with experience in building web applications. Passionate about artificial intelligence, I am eager to apply my skills in a professional setting and contribute to real-world projects. EDUCATION Siksha O Anusandhan 2022 – 2026 B.Tech in Computer Science and Information Technology(CGPA: 9.57) EXPERIENCE Tata Steel ,Vocational Trainee June 2025 – July 2025 • Built a React.js frontend integrated with a Node.js backend, enabling users to quickly search engineering document PDFs. • Added LLM-powered summarization to generate concise, context-specific summaries of lengthy technical document, reducing the reading time for technical teams. • Designed and implemented search and retrieval APIs, ensuring quick access to relevant document and a seamless user experience. PROJECTS QuickDrop (Link) (GitHub) • A file-sharing web application built with React.js and Node.js, enabling users to securely upload and access files using unique codes. • Developed a backend with custom APIs for uploading, downloading, and automatically expiring files, enhancing privacy and user control. • Used MongoDB to store file information and integrated it with backend APIs to ensure smooth and safe file handling for all users. ClipURL (Link) (GitHub) • Developed the frontend of a custom URL shortener using React.js, enabling users to generate, manage, and share shortened links effortlessly. • Collaborated with teammates with the Node.js backend, which integrated MongoDB for storing original and shortened URLs with expiration policies. • Designed and implemented responsive UI components, forms, and interactive elements to ensure a smooth user experience. CareerLift (GitHub) • Built a full-stack career guidance platform using React.js, Node.js, Express.js, and MongoDB to help users improve job readiness. • Implemented an ATS-based resume score checker that analyzes resumes against job descriptions and provides actionable optimization insights. • Designed scalable backend APIs and authentication flows, with upcoming features including AI-powered mock interviews and peer-to-peer interview practice. SKILLS Languages: Java, JavaScript, C++, SQL Frameworks & Libraries: React.js, MongoDB, Express.js Additional: Git/Github,Data Structures, Algorithm ACHIEVEMENTS • Selected for the PwC Launchpad Program, where I learned Java, RDBMS, and DevOps tools through structured video-based training and live masterclass. • Achieved 5-star rating in Java on HackerRank, demonstrating strong proficiency in Java programming and problem-solving skills. -- 1 of 1 --"
+    },
+    "profile": {},
+    "contact": {
+      "email": "abhi@gmail.com"
+    },
+    "skills": [],
+    "experiences": [],
+    "educations": [],
+    "certifications": [],
+    "projects": [],
+    "savedJobs": [
+      {
+        "id": 1,
+        "title": "Senior Software Engineer",
+        "company": "Infosys",
+        "location": "Bengaluru, Karnataka",
+        "salary": "₹15L - ₹25L",
+        "type": "Full-time",
+        "experience": "Mid-Senior Level",
+        "postedDays": 1,
+        "companyInitial": "I",
+        "color": "bg-blue-600",
+        "isRemote": true
+      }
+    ]
+  },
+  {
+    "id": 1769146976451,
+    "email": "jj@gmail.com",
+    "password": "$2b$10$DMNehyJ2zf8DxBteG8Ue9uo0yZ4muwMrjkBrS8DMQRtNuJiRG9rSe",
+    "name": "abhi"
+  }
+]
