@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Lock, User, Eye, EyeOff, ArrowRight } from 'lucide-react';
+import { Mail, Lock, User, Eye, EyeOff, ArrowRight, Rocket } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from '../apiConfig';
 
@@ -46,6 +46,14 @@ export function RegisterForm() {
 
     return (
         <div className="w-full">
+            {/* Logo - Mobile Only */}
+            <div className="flex items-center gap-2 mb-8 lg:hidden justify-center">
+                <div className="bg-gradient-to-br from-[#ffc9e0] via-[#d4b5ff] to-[#a8d5ff] p-2 rounded-lg">
+                    <Rocket className="w-6 h-6 text-white shadow-sm" />
+                </div>
+                <span className="font-bold text-2xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 tracking-tight">CareerLift</span>
+            </div>
+
             {/* Header */}
             <div className="mb-8">
                 <h1 className="mb-2 text-3xl font-bold text-gray-900">Create Account</h1>
