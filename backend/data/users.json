@@ -130,5 +130,17 @@
     "email": "jj@gmail.com",
     "password": "$2b$10$DMNehyJ2zf8DxBteG8Ue9uo0yZ4muwMrjkBrS8DMQRtNuJiRG9rSe",
     "name": "abhi"
+  },
+  {
+    "id": 1769341473957,
+    "email": "test@example.com",
+    "password": "$2b$10$UEPpOwCRF7ytPAx0ehO8j.S1BJq7ntNlwBw.6N331U/e/9RfVo5Um",
+    "name": "Test User"
+  },
+  {
+    "id": 1769341551540,
+    "email": "rr@gmail.com",
+    "password": "$2b$10$UeBdPZ5BkX7rbUSHb8VsXuV/qqkupOVePBLYRN4YEVUCIfBiuHPFG",
+    "name": "ranjan"
   }
 ]

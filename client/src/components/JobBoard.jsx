@@ -18,6 +18,7 @@ export function JobBoard() {
   const [searchJobTitle, setSearchJobTitle] = useState('');
   const [selectedJob, setSelectedJob] = useState(null);
   const [savedJobs, setSavedJobs] = useState([]);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   // safe parse user from localStorage
   let parsedUser = {};
@@ -245,7 +246,7 @@ export function JobBoard() {
       exit={{ opacity: 0 }}
       className="min-h-screen bg-[#F8FAFC]"
     >
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-6 md:px-6 md:py-8">
         {/* Header */}
         <motion.div
           initial={{ y: -20, opacity: 0 }}
@@ -261,7 +262,7 @@ export function JobBoard() {
               <ArrowLeft className="w-6 h-6" />
             </button>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 tracking-tight">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
                 Find Your Path
               </h1>
               <p className="text-gray-500 mt-1">Discover opportunities that match your passion.</p>
@@ -394,15 +395,35 @@ export function JobBoard() {
           </label>
         </div>
 
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 relative">
+          {/* Mobile Filter Overlay */}
+          <AnimatePresence>
+            {showMobileFilters && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowMobileFilters(false)}
+                className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+              />
+            )}
+          </AnimatePresence>
+
           {/* Filters Sidebar */}
-          <motion.aside
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-72 flex-shrink-0 hidden lg:block"
+          <aside
+            className={`w-72 bg-white lg:bg-transparent fixed inset-y-0 left-0 z-50 overflow-y-auto lg:overflow-visible transition-transform duration-300 lg:translate-x-0 lg:static lg:block p-6 lg:p-0 shadow-2xl lg:shadow-none ${showMobileFilters ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
           >
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 sticky top-6 shadow-[0_2px_10px_rgb(0,0,0,0.02)]">
+            <div className="flex items-center justify-between lg:hidden mb-6">
+              <h3 className="font-bold text-gray-900 text-lg">Filters</h3>
+              <button
+                onClick={() => setShowMobileFilters(false)}
+                className="p-2 text-gray-500 hover:text-gray-900 bg-gray-100 rounded-full"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 border border-gray-100 sticky top-6 lg:shadow-[0_2px_10px_rgb(0,0,0,0.02)]">
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
                 <div className="flex items-center gap-2 text-gray-800 font-bold">
                   <Filter className="w-4 h-4" />
@@ -473,7 +494,7 @@ export function JobBoard() {
                 </div>
               </div>
             </div>
-          </motion.aside>
+          </aside>
 
           {/* Job Listings */}
           <main className="flex-1">
@@ -481,12 +502,22 @@ export function JobBoard() {
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center justify-between mb-6"
+              className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4"
             >
-              <p className="text-gray-500 font-medium text-sm">Found <span className="text-gray-900 font-bold">{jobs.length}</span> opportunities</p>
+              <div className="flex items-center justify-between w-full sm:w-auto">
+                <p className="text-gray-500 font-medium text-sm">Found <span className="text-gray-900 font-bold">{jobs.length}</span> opportunities</p>
+                <button
+                  onClick={() => setShowMobileFilters(true)}
+                  className="lg:hidden flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700 shadow-sm"
+                >
+                  <Filter className="w-4 h-4" />
+                  Filters
+                </button>
+              </div>
+
               <div className="flex items-center gap-3">
                 <span className="text-sm text-gray-500 font-medium hidden sm:inline">Sort by:</span>
-                <div className="relative">
+                <div className="relative w-full sm:w-auto">
                   <select className="bg-white border border-gray-200 rounded-lg pl-3 pr-8 py-2 text-sm font-medium text-gray-700 outline-none hover:border-purple-300 focus:ring-2 focus:ring-purple-100 transition shadow-sm appearance-none cursor-pointer">
                     <option>Relevance</option>
                     <option>Date Posted</option>
@@ -556,27 +587,27 @@ export function JobBoard() {
                       {/* Hover Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-r from-purple-50/50 to-pink-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                      <div className="flex items-start justify-between relative z-10">
-                        <div className="flex gap-5 flex-1">
-                          <div className={`w-16 h-16 ${job.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300`}>
-                            <span className="text-white text-2xl font-bold">{job.companyInitial}</span>
+                      <div className="flex flex-col lg:flex-row items-start justify-between relative z-10 gap-4 lg:gap-0">
+                        <div className="flex gap-4 sm:gap-5 w-full lg:w-auto lg:flex-1">
+                          <div className={`w-14 h-14 sm:w-16 sm:h-16 ${job.color} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-300`}>
+                            <span className="text-white text-xl sm:text-2xl font-bold">{job.companyInitial}</span>
                           </div>
 
-                          <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-1.5 align-baseline">
-                              <h3 className="font-bold text-lg text-gray-900 group-hover:text-purple-700 transition-colors">{job.title}</h3>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1.5 align-baseline">
+                              <h3 className="font-bold text-base sm:text-lg text-gray-900 group-hover:text-purple-700 transition-colors truncate">{job.title}</h3>
                               {job.isRemote && (
-                                <span className="px-2.5 py-0.5 bg-green-50 text-green-700 border border-green-100 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">Remote</span>
+                                <span className="px-2.5 py-0.5 bg-green-50 text-green-700 border border-green-100 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm flex-shrink-0">Remote</span>
                               )}
                             </div>
 
-                            <p className="text-gray-500 text-sm mb-4 font-medium flex items-center gap-2">
+                            <p className="text-gray-500 text-sm mb-4 font-medium flex items-center gap-2 truncate">
                               {job.company}
-                              <span className="w-1 h-1 bg-gray-300 rounded-full" />
-                              {job.location}
+                              <span className="w-1 h-1 bg-gray-300 rounded-full flex-shrink-0" />
+                              <span className="truncate">{job.location}</span>
                             </p>
 
-                            <div className="flex flex-wrap gap-2 mb-4">
+                            <div className="flex flex-wrap gap-2 mb-2 sm:mb-4">
                               <span className="px-3 py-1 bg-gray-50 hover:bg-gray-100 text-gray-600 border border-gray-200/50 rounded-lg text-xs font-semibold transition-colors">
                                 {job.type}
                               </span>
@@ -590,11 +621,12 @@ export function JobBoard() {
                           </div>
                         </div>
 
-                        <div className="flex flex-col items-end justify-between self-stretch ml-4">
+                        <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between w-full lg:w-auto lg:ml-4 sm:mt-0 border-t lg:border-t-0 border-gray-100 pt-4 lg:pt-0 gap-4 lg:gap-0 lg:self-stretch">
                           <button
                             onClick={(e) => handleToggleSave(e, job)}
-                            className="relative group flex items-center gap-1 text-gray-300 hover:text-purple-600 transition-colors"
+                            className="relative group flex items-center gap-2 lg:gap-1 text-gray-400 hover:text-purple-600 transition-colors order-1 lg:order-none"
                           >
+                            <span className="text-sm font-semibold lg:hidden group-hover:text-purple-600">Save</span>
                             <Bookmark
                               className={`w-5 h-5 transition-colors ${savedJobs.includes(String(job.id))
                                 ? 'fill-purple-600 text-purple-600'
@@ -603,7 +635,7 @@ export function JobBoard() {
                             />
 
                             <span
-                              className={`absolute -left-16 top-1/2 -translate-y-1/2 text-xs font-semibold px-2 py-1 rounded-md shadow-sm transition-all whitespace-nowrap
+                              className={`hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2 text-xs font-semibold px-2 py-1 rounded-md shadow-sm transition-all whitespace-nowrap
                                 ${savedJobs.includes(String(job.id))
                                   ? 'bg-purple-600 text-white opacity-100'
                                   : 'bg-gray-900 text-white opacity-0 group-hover:opacity-100'
@@ -613,12 +645,12 @@ export function JobBoard() {
                             </span>
                           </button>
 
-                          <div className="mt-auto flex flex-col items-end gap-2">
-                            <span className="text-xs font-semibold text-gray-400">{job.postedDays}d ago</span>
+                          <div className="flex flex-col items-end gap-2 order-2 lg:order-none w-auto">
+                            <span className="text-xs font-semibold text-gray-400 hidden lg:block">{job.postedDays}d ago</span>
                             <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              className="px-6 py-2 bg-gray-900 text-white rounded-xl hover:bg-black transition-colors font-bold text-sm shadow-lg shadow-gray-200"
+                              className="px-5 py-2 sm:px-6 sm:py-2 bg-gray-900 text-white rounded-xl hover:bg-black transition-colors font-bold text-sm shadow-lg shadow-gray-200 whitespace-nowrap"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 setSelectedJob(job);
@@ -629,24 +661,25 @@ export function JobBoard() {
                           </div>
 
                           {/* ATS Score Indicator */}
-                          {job.atsScore !== undefined && (
-                            <div className="mt-3 flex items-center gap-3 w-full justify-end">
-                              <span className={`text-xs font-bold ${job.atsScore > 75 ? 'text-green-600' : job.atsScore > 50 ? 'text-yellow-600' : 'text-red-500'
-                                }`}>
-                                {job.atsScore}% Match
-                              </span>
-                              <div className="h-1.5 w-24 bg-gray-100 rounded-full overflow-hidden">
-                                <motion.div
-                                  initial={{ width: 0 }}
-                                  animate={{ width: `${job.atsScore}%` }}
-                                  transition={{ duration: 1, ease: "easeOut" }}
-                                  className={`h-full rounded-full ${job.atsScore > 75 ? 'bg-green-500' : job.atsScore > 50 ? 'bg-yellow-500' : 'bg-red-500'
-                                    }`}
-                                />
+                          <div className="order-3 lg:order-none w-full flex justify-end lg:w-auto">
+                            {job.atsScore !== undefined && (
+                              <div className="flex items-center gap-3">
+                                <span className={`text-xs font-bold ${job.atsScore > 75 ? 'text-green-600' : job.atsScore > 50 ? 'text-yellow-600' : 'text-red-500'
+                                  }`}>
+                                  {job.atsScore}% Match
+                                </span>
+                                <div className="h-1.5 w-16 sm:w-24 bg-gray-100 rounded-full overflow-hidden">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${job.atsScore}%` }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
+                                    className={`h-full rounded-full ${job.atsScore > 75 ? 'bg-green-500' : job.atsScore > 50 ? 'bg-yellow-500' : 'bg-red-500'
+                                      }`}
+                                  />
+                                </div>
                               </div>
-                            </div>
-                          )}
-
+                            )}
+                          </div>
                         </div>
                       </div>
                     </motion.div>
