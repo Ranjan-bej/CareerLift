@@ -123,11 +123,14 @@ export function Dashboard() {
             <p className="text-sm text-gray-500">Real-time salary data and hiring trends for your role.</p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
-            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 mb-4">
+          <div
+            onClick={() => navigate('/resume-templates')}
+            className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-orange-200 transition-all cursor-pointer group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 mb-4 group-hover:scale-110 transition-transform">
               <FileText className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-gray-900 mb-2">Resume Templates</h3>
+            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">Resume Templates</h3>
             <p className="text-sm text-gray-500">ATS-friendly templates designed by hiring managers.</p>
           </div>
 

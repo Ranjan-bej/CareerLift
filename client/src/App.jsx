@@ -6,6 +6,8 @@ import { JobBoard } from './components/JobBoard';
 import { BeatTheAlgorithm } from './components/BeatTheAlgorithm';
 import { Layout } from './components/Layout';
 import { Profile } from './components/Profile';
+import { ResumeTemplates } from './components/ResumeTemplates';
+import { ResumeEditor } from './components/ResumeEditor';
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token');
@@ -109,6 +111,8 @@ export default function App() {
             <Route path="/jobs" element={<JobBoard />} />
             <Route path="/beat-the-algorithm" element={<BeatTheAlgorithm />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/resume-templates" element={<ResumeTemplates />} />
+            <Route path="/resume-editor/:templateId" element={<ResumeEditor />} />
           </Route>
 
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
